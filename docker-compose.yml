@@ -1,11 +1,12 @@
 wordpress:
-  image: wordpress
+  #image: wordpress
+  build: .
   mem_limit: 256m
-  links:
-    - db:mysql
   ports:
-    - 8081:80
-db:
-  image: mariadb
+    - 80:80
   environment:
-    MYSQL_ROOT_PASSWORD: example
+    - WORDPRESS_DB_HOST=mysql.wnews.org.au
+    - WORDPRESS_DB_USER=
+    - WORDPRESS_DB_PASSWORD=
+    - WORDPRESS_DB_NAME=basepatterns_wp
+    - WORDPRESS_TABLE_PREFIX=wp_z5xguu_
